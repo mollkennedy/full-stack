@@ -1,16 +1,19 @@
 import { resources } from '@/lib/resources'
+import ResourceCard from './resource-card'
+
 export default function ResourcesPage() {
     return(
         <main>
             <h1>Resources</h1>
 
-            <ul>
+            <div className="grid gap-4 md:grid-cols-2">
                 {resources.map((resource) => (
-                    <li key={resource.id}>
-                        {resource.name}
-                    </li>
+                    <ResourceCard 
+                    key={resource.id}
+                   resource={resource}
+                    />
                 ))}
-            </ul>
+           </div>
         </main>
     )
     }
