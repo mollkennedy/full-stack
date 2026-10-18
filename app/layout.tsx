@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import './globals.css'
 import type { Metadata } from 'next'
+import NavLinks from './_components/nav-links';
 
 export const metadata: Metadata = {
 
@@ -24,11 +25,7 @@ return (
     <header className="flex items-center justify-between bg-slate-900 p-4 text-white">
         <h1>Campus Bookings</h1>
 
-<nav aria-label="Main">
-<Link href="/">Home   </Link>
-<Link href="/resources">Resources</Link>
-<Link href="/bookings">Bookings</Link>
-</nav>
+<NavLinks />
     </header>
 
 <main>

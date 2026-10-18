@@ -12,7 +12,6 @@ datasource db {
   provider = "postgresql"
 }
 
-
 model Resource {
   id  Int @id @default(autoincrement())
   slug  String @unique 
@@ -20,10 +19,30 @@ model Resource {
   type ResourceType 
   capacity Int
   createdAt DateTime @default(now())
+  bookings Booking[]
 }
 
 enum ResourceType {
   room
   equipment
   sport
+}
+
+model Booking {
+  id   Int @id @default(autoincrement())
+  startsAt DateTime
+  endsAt DateTime
+  resourceId Int
+  resource Resource @relation(fields: [resourceId], references: [id])
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  note String? 
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  name String
+  email String @unique
+  bookings Booking[]
 }

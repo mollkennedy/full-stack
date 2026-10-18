@@ -13,15 +13,15 @@ export default function ResourceCard({ resource, popular }: Props) {
 
 return (
 
-<article className="card">
+<article className="rounded-lg border p-4 shadow-sm">
 
-<h2>{resource.name}</h2>
+<h2 className="text-xl font-semibold">{resource.name}</h2>
 
-<p>{resource.capacity} seats</p>
+<p className="text-sm text-gray-500">{resource.capacity} seats</p>
 
 {popular && <p>Popular this week</p>}
 
-<Link href={`/resources/${resource.id}`}>View</Link>
+<Link className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md" href={`/resources/${resource.id}`}>View</Link>
 
 </article>
 
