@@ -1,6 +1,10 @@
 import { resources } from '@/lib/resources'
 import ResourceCard from './resource-card'
 
+export const metdata = {
+    title: 'Resources',
+}
+
 export default function ResourcesPage() {
     return(
         <main>
