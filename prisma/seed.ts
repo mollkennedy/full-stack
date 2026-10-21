@@ -55,7 +55,7 @@ async function main() {
       });
 
     await prisma.user.create({
-        data:
+        data: 
         {
             name: 'mollie',
             email: 'mollie@mollie.com',
@@ -75,6 +75,23 @@ async function main() {
             name: 'brad',
             email: 'brad@brad.com',
         }
+    })
+
+    await prisma.building.createMany({
+        data:[
+        {
+        name: 'High Tech Digital Centre',
+        code: 'HTDC',
+        capacity: 100,
+        },
+        
+        {
+            name:'Main Building',
+            code: 'SDCM',
+            capacity: 300,
+        }
+
+    ]
     })
 
 }

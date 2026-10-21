@@ -20,6 +20,9 @@ model Resource {
   capacity Int
   createdAt DateTime @default(now())
   bookings Booking[]
+  buildingId Int?
+  building Building? @relation(fields: [buildingId], references: [id])
+
 }
 
 enum ResourceType {
@@ -49,5 +52,13 @@ model User {
 
 enum Role {
 student
-amin
+admin
+}
+
+model Building {
+    id Int @id @default(autoincrement())
+    code String @unique
+    name String
+    capacity Int
+    resources Resource[]
 }
